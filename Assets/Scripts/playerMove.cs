@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class playerMove : MonoBehaviour
 {
@@ -8,13 +9,17 @@ public class playerMove : MonoBehaviour
     // Start is called once before the first execution oated
 
     private float speedInput, turnInput;
-    private bool leftClk, rightClk;
+
+    private bool bashing = true;
+    public float bashPow = 20f; 
+    public float bashTime = 0.3f;
+    public float bashCooldown = 0.75f;
+
+
     void Start()
     {
         sphereRB.transform.parent = null;
 
-        leftClk = Input.GetMouseButtonDown(0);    //Left Mouse
-        rightClk = Input.GetMouseButtonDown(1);    //Right Mouse
     }
 
     // Update is called once per frame
@@ -35,22 +40,34 @@ public class playerMove : MonoBehaviour
 
         transform.position = sphereRB.transform.position; //move to the shpere rb
 
-        if (leftClk == true)
-        {
-            Debug.Log("Left Mouse Button");
+        if (Input.GetMouseButtonDown(0) && bashing){     //LEFT CLICK
+            Debug.Log("Pressed left-click.");
+            StartCoroutine(Bash());
         }
-        if (rightClk == true)
-        {
-            Debug.Log("Right Mouse Click");
-        }
+            
+        if (Input.GetMouseButtonDown(1))    //RIGHT CLICK
+            Debug.Log("Pressed right-click.");
 
     }
 
     private void FixedUpdate()
     {
         //sphereRB.AddForce(transform.forward * forwardMove * 1000);
-        if(Mathf.Abs(speedInput) > 0){
+        if (Mathf.Abs(speedInput) > 0)
+        {
             sphereRB.AddForce(transform.forward * speedInput);
         }
+
+    }
+
+    private IEnumerator Bash(){     //needs to alter the x value of player position
+        bashing = true;
+
+        velocity = new Vector3(transform.forward.x * bashPow, 0f,0f);
+        yield return new WaitForSeconds(bashTime);
+
+        velocity = Vector3.zero;
+        yield return new WaitForSeconds(bashCooldown);
+        bashing = true;
     }
 }
