@@ -10,16 +10,13 @@ public class playerMove : MonoBehaviour
 
     private float speedInput, turnInput;
 
-    private bool bashing = true;
+    private Vector3 bashDirecion;
     public float bashPow = 20f; 
-    public float bashTime = 0.3f;
-    public float bashCooldown = 0.75f;
 
 
     void Start()
     {
         sphereRB.transform.parent = null;
-
     }
 
     // Update is called once per frame
@@ -38,16 +35,21 @@ public class playerMove : MonoBehaviour
         turnInput = Input.GetAxis("Horizontal");
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
 
-        transform.position = sphereRB.transform.position; //move to the shpere rb
+        //transform.position = sphereRB.transform.position; //move to the shpere rb
 
-        if (Input.GetMouseButtonDown(0) && bashing){     //LEFT CLICK
+        if (Input.GetMouseButtonDown(0)){     //LEFT CLICK
             Debug.Log("Pressed left-click.");
-            StartCoroutine(Bash());
+
+            sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
         }
             
-        if (Input.GetMouseButtonDown(1))    //RIGHT CLICK
+        if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
             Debug.Log("Pressed right-click.");
-
+            
+            sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
+        }
+        transform.position = sphereRB.transform.position; //move to the shpere rb
+        
     }
 
     private void FixedUpdate()
@@ -58,16 +60,7 @@ public class playerMove : MonoBehaviour
             sphereRB.AddForce(transform.forward * speedInput);
         }
 
+
     }
 
-    private IEnumerator Bash(){     //needs to alter the x value of player position
-        bashing = true;
-
-        velocity = new Vector3(transform.forward.x * bashPow, 0f,0f);
-        yield return new WaitForSeconds(bashTime);
-
-        velocity = Vector3.zero;
-        yield return new WaitForSeconds(bashCooldown);
-        bashing = true;
-    }
 }

@@ -920,6 +920,7 @@ MonoBehaviour:
   reverseMove: 4
   maxSpeed: 50
   turnStr: 180
+  bashPow: 2
 --- !u!114 &2011145273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,11 +928,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011145267}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 510a0f752bc19eb4ba9535252dfe3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bashPow: 20
+  bashTime: 0.3
+  bashCooldown: 0.75
+  jump: {x: 0, y: 0, z: 0}
+  jumpForce: 2
+  isGrounded: 0
+  rb: {fileID: 1923726324}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
