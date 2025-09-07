@@ -243,6 +243,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3e50eb803077645aa50f3fa8f31ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equiped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 6a3e50eb803077645aa50f3fa8f31ff0, type: 3}
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  reload:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &975770777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -364,6 +382,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7475a2967d1fa584bba6bb59a75116b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equiped:
+    m_PersistentCalls:
+      m_Calls: []
+  reload:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1152158918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -606,7 +630,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 975770776}
   - {fileID: 1152158917}
-  currentWeapon: {fileID: 1152158917}
+  currentWeapon: {fileID: 975770776}
 --- !u!4 &1662616878
 Transform:
   m_ObjectHideFlags: 0

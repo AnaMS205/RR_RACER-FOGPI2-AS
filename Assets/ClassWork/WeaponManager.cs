@@ -46,6 +46,8 @@ public class WeaponManager : MonoBehaviour
                 weaponIndex = weapons.Count - 1;
 
             currentWeapon = weapons[weaponIndex];
+            currentWeapon.equiped.Invoke();
+
 
         }
 
@@ -60,5 +62,6 @@ public class WeaponManager : MonoBehaviour
                 weaponIndex = 0;
 
             currentWeapon = weapons[weaponIndex];
+            currentWeapon.equiped.Invoke();
         }
     }
