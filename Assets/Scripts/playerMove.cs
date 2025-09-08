@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class playerMove : MonoBehaviour
 {
@@ -10,8 +10,9 @@ public class playerMove : MonoBehaviour
 
     private float speedInput, turnInput;
 
-    private Vector3 bashDirecion;
     public float bashPow = 20f; 
+
+    public float OffRoadMul = 0.75f; //multiply by maxSpeed to slowdown player
 
 
     void Start()
@@ -60,7 +61,8 @@ public class playerMove : MonoBehaviour
             sphereRB.AddForce(transform.forward * speedInput);
         }
 
-
     }
+
+
 
 }
