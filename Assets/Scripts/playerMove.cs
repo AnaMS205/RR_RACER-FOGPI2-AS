@@ -12,8 +12,6 @@ public class playerMove : MonoBehaviour
 
     public float bashPow = 20f; 
 
-    public float OffRoadMul = 0.75f; //multiply by maxSpeed to slowdown player
-
 
     void Start()
     {
@@ -62,7 +60,5 @@ public class playerMove : MonoBehaviour
         }
 
     }
-
-
 
 }
