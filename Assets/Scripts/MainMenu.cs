@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void multiStart(){
-        SceneManager.LoadScene(multiPScene);
+        //SceneManager.LoadScene(multiPScene);
     }
 
     public void LoadMenu(){

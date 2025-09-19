@@ -1,67 +1,71 @@
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-//using UnityEditor;
+// using System.Collections.Generic;
+// using UnityEditor;
 
-[CustomEditor(typeof(WeaponManager))]
-public class WeaponManagerEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
+// #if UNITY_EDITOR 
+// using UnityEngine;
+// //using UnityEditor;
 
-        WeaponManager wm = (WeaponManager)target;
+// [CustomEditor(typeof(WeaponManager))]
+// public class WeaponManagerEditor : Editor
 
-        if (GUILayout.Button("prev"))
-        {
-            wm.PreWeapon();
-        }
+// #ELIF
+// {
+//     public override void OnInspectorGUI()
+//     {
+//         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Use"))
-        {
-            wm.Use();
-        }
-    }
-}
+//         WeaponManager wm = (WeaponManager)target;
 
-public class WeaponManager : MonoBehaviour
-    {   //sit on player
-        public List<Weapon> weapons;
-        public Weapon currentWeapon;
-        private int weaponIndex = 0;
+//         if (GUILayout.Button("prev"))
+//         {
+//             wm.PreWeapon();
+//         }
 
-        public void Use()
-        {
-            if (currentWeapon)
-                currentWeapon.Use();
-        }
+//         if (GUILayout.Button("Use"))
+//         {
+//             wm.Use();
+//         }
+//     }
+// }
 
-        public void PreWeapon()
-        {
-            if (weapons.Count <= 1)
-                return;
+// public class WeaponManager : MonoBehaviour
+//     {   //sit on player
+//         public List<Weapon> weapons;
+//         public Weapon currentWeapon;
+//         private int weaponIndex = 0;
 
-            weaponIndex--;
-            if (weaponIndex < 0)
-                weaponIndex = weapons.Count - 1;
+//         public void Use()
+//         {
+//             if (currentWeapon)
+//                 currentWeapon.Use();
+//         }
 
-            currentWeapon = weapons[weaponIndex];
-            currentWeapon.equiped.Invoke();
+//         public void PreWeapon()
+//         {
+//             if (weapons.Count <= 1)
+//                 return;
+
+//             weaponIndex--;
+//             if (weaponIndex < 0)
+//                 weaponIndex = weapons.Count - 1;
+
+//             currentWeapon = weapons[weaponIndex];
+//             currentWeapon.equiped.Invoke();
 
 
-        }
+//         }
 
-        public void NextWeapon()
-        {
-            if (weapons.Count <= 1)
-                return;
+//         public void NextWeapon()
+//         {
+//             if (weapons.Count <= 1)
+//                 return;
 
-            weaponIndex++;
+//             weaponIndex++;
 
-            if (weaponIndex >= weapons.Count)
-                weaponIndex = 0;
+//             if (weaponIndex >= weapons.Count)
+//                 weaponIndex = 0;
 
-            currentWeapon = weapons[weaponIndex];
-            currentWeapon.equiped.Invoke();
-        }
-    }
+//             currentWeapon = weapons[weaponIndex];
+//             currentWeapon.equiped.Invoke();
+//         }
+//     }

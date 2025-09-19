@@ -47,6 +47,12 @@ public class playerMove : MonoBehaviour
             
             sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
         }
+
+        if(sphereRB.position.y > 1){
+            sphereRB.AddForce(Physics.gravity * 200);
+            //Physics.gravity
+        }
+
         transform.position = sphereRB.transform.position; //move to the shpere rb
         
     }
