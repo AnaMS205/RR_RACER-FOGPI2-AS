@@ -37,18 +37,18 @@ public class playerMove : MonoBehaviour
         //transform.position = sphereRB.transform.position; //move to the shpere rb
 
         if (Input.GetMouseButtonDown(0)){     //LEFT CLICK
-            Debug.Log("Pressed left-click.");
+            //Debug.Log("Pressed left-click.");
 
             sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
         }
             
         if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
-            Debug.Log("Pressed right-click.");
+            //Debug.Log("Pressed right-click.");
             
             sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
         }
 
-        if(sphereRB.position.y > 1){
+        if(sphereRB.position.y > 1){        //add gravity so player falls off ramps better
             sphereRB.AddForce(Physics.gravity * 200);
             //Physics.gravity
         }

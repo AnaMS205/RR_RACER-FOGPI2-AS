@@ -6,15 +6,15 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     private TMP_Text timerText;
-    private float time;
+    public float time;
     private bool running = false;
-    int sec;
-    float recordTime;
+    //public int sec;
+    //float recordTime;
 
     void Start()
     {
         timerText = gameObject.GetComponent<TMP_Text>();
-        timerText.text =""; //keep screen blank
+        timerText.text ="You should race THREE laps on the testing track"; //keep screen blank
     }
 
     void Update()
@@ -23,9 +23,9 @@ public class Timer : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            int sec = (int)time;
+            //int sec = (int)time;
 
-            timerText.text = "Time: " +sec.ToString();
+            timerText.text = "Time: " +time.ToString("F2");
         }
         
     }
@@ -36,19 +36,15 @@ public class Timer : MonoBehaviour
 
     public void StopTime()  //timer.StopTime(); to activate
     {
-        if(time > recordTime){
-            running = false;
-            int times = (int)time;
-            timerText.text = "You finished in " +times.ToString()+ " seconds";
-        }
-        // if(time < recordTime){
-        //     running = false;
-        //     int times = (int)time;
-        //     timerText.text = "New Record," +times.ToString()+ " seconds!";
-        //     recordTime += time;
-            
-        // }
+        running = false;
+        //int times = (int)time;
+        timerText.text = "You finished the race in " +time.ToString("F2")+ " seconds";
 
-        
+    }
+
+    public void GetTime(){
+        int currentTime = (int)time;
+        //yield return currentTime;
+        //return currentTime;
     }
 }
