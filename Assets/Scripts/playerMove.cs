@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class playerMove : MonoBehaviour
 {
@@ -12,6 +13,20 @@ public class playerMove : MonoBehaviour
 
     public float bashPow = 20f; 
 
+    public InputActionReference move;
+
+    private Vector3 m_moveDirction; 
+
+    void OnEnable(){ //everytime the object is set active
+        //attack.action.performed += weaponManager.use;
+    }
+
+    void OnDisable(){
+
+    }
+
+    //void Attack(Input)
+
 
     void Start()
     {
@@ -21,6 +36,8 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //UpdateInput();
+
         speedInput = 0f;
         if (Input.GetAxis("Vertical") > 0)
         {
@@ -36,7 +53,7 @@ public class playerMove : MonoBehaviour
 
         //transform.position = sphereRB.transform.position; //move to the shpere rb
 
-        if (Input.GetMouseButtonDown(0)){     //LEFT CLICK
+        if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
             //Debug.Log("Pressed left-click.");
 
             sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
@@ -66,5 +83,9 @@ public class playerMove : MonoBehaviour
         }
 
     }
+
+    // void UpdateInput(){
+    //     m_moveDirction = move.action.ReadValue<Vector3>();
+    // }
 
 }
