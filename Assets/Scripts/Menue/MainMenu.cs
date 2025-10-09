@@ -16,12 +16,7 @@ public class MainMenu : MonoBehaviour
     public GameObject menuBut;
     public GameObject backBut;
 
-    public GameObject twoP;
-    public GameObject threeP;
-    public GameObject fourP;
-
     int playerNum;
-
 
     public void Start(){
         ShowButtons();
@@ -30,7 +25,7 @@ public class MainMenu : MonoBehaviour
         menuText.text = "beautiful menu";
         playerSelect.text = " ";
         backBut.SetActive(false);
-        HideOther();
+        //HideOther();
 
     }
 
@@ -42,10 +37,11 @@ public class MainMenu : MonoBehaviour
 
     public void MultiStart(){       //load buttons to select numer of players (2-4);
         //SceneManager.LoadScene(multiPScene);
-        playerSelect.text = "How many Players?";
+        playerNum = 2;
+        playerSelect.text = "Im working on it";
         menuText.text = " ";
         HideButtons();
-        ShowOther();
+        //ShowOther();
         backBut.SetActive(true);
 
     }
@@ -63,21 +59,12 @@ public class MainMenu : MonoBehaviour
 
     public void BackButton(){
         ShowButtons();
-        HideOther();
+        //HideOther();
         menuText.text = "beautiful menu";
         playerSelect.text = " ";
         backBut.SetActive(false);
     }
 
-    public void TWOplayer(){
-        playerNum = 2;
-    }
-    public void THREEplayer(){
-        playerNum = 3;
-    }
-    public void FOURplayer(){
-        playerNum = 4;
-    }
 
     void HideButtons(){
         singleBut.SetActive(false);
@@ -85,11 +72,11 @@ public class MainMenu : MonoBehaviour
         menuBut.SetActive(false);
     }
 
-    void HideOther(){
-        twoP.SetActive(false);
-        threeP.SetActive(false);
-        fourP.SetActive(false);
-    }
+    // void HideOther(){
+    //     twoP.SetActive(false);
+    //     threeP.SetActive(false);
+    //     fourP.SetActive(false);
+    // }
 
     void ShowButtons(){
         singleBut.SetActive(true);
@@ -97,9 +84,9 @@ public class MainMenu : MonoBehaviour
         menuBut.SetActive(true);
     }
 
-    void ShowOther(){
-        twoP.SetActive(true);
-        threeP.SetActive(true);
-        fourP.SetActive(true);
-    }
+    // void ShowOther(){
+    //     twoP.SetActive(true);
+    //     threeP.SetActive(true);
+    //     fourP.SetActive(true);
+    // }
 }
