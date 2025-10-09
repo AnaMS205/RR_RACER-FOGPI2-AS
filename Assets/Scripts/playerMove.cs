@@ -24,8 +24,8 @@ public class playerMove : MonoBehaviour
     private Vector3 m_moveDirction; 
 
     void Awake(){
-        leftBash = movementing.FindAction("LeftBash");
-        rightBash = movementing.FindAction("RightBash");
+        // leftBash = movementing.FindAction("LeftBash");
+        // rightBash = movementing.FindAction("RightBash");
     }
 
 
@@ -79,7 +79,7 @@ public class playerMove : MonoBehaviour
         turnInput = m_moveDirction.x;   //turning
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
 
-        if (Input.GetMouseButtonDown(1)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
+        if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
             //Debug.Log("Pressed left-click.");
 
             sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
