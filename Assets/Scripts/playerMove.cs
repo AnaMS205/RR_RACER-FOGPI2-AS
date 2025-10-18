@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-
+//public Animation graph;
 public class playerMove : MonoBehaviour
 {
 
@@ -9,19 +9,23 @@ public class playerMove : MonoBehaviour
 
     public Rigidbody sphereRB;
 
-    public float forwardMove = 8f, reverseMove = 4f, maxSpeed = 50f, turnStr = 180f;
-    // Start is called once before the first execution oated
+    public float forwardMove = 8f, reverseMove = 4f, turnStr = 180f, maxSpeed;
+    // Start is called once before the first execution oated 
 
     private float speedInput, turnInput;
 
     public float bashPow = 20f; 
 
     public InputActionAsset movementing;
-    private InputAction leftBash;
+    private InputAction m_left;
     private InputAction rightBash;
 
 
     private Vector3 m_moveDirction; 
+
+    //public GameObject startPos;
+
+    public AnimationCurve speedCurve;
 
     void Awake(){
         // leftBash = movementing.FindAction("LeftBash");
@@ -31,11 +35,18 @@ public class playerMove : MonoBehaviour
 
     void Start()
     {
+        //sphereRB.transform.position = startPos.transform.position;
+        GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f),Random.Range(0f, 1f));
+
         sphereRB.transform.parent = null;
+        maxSpeed = forwardMove; //set as a baseline so forward move can be reset
+
+        
     }
 
     public void OnMove(InputValue input){
         m_moveDirction = input.Get<Vector2>();
+        //m_left = Input.("LeftBash");
 
     }
 
@@ -50,6 +61,7 @@ public class playerMove : MonoBehaviour
         
         
         Movement();
+        transform.position = sphereRB.transform.position; //move to the shpere rb
         
     }
 
@@ -68,7 +80,7 @@ public class playerMove : MonoBehaviour
         //forward movement
         if (m_moveDirction.y > 0)       //input.getAxis vertical
         {
-            speedInput = m_moveDirction.y * forwardMove * 1000;
+            speedInput = m_moveDirction.y * forwardMove * 1000 ;    //ask eric how to myltiply by the speed curve
         }
         //reverse movement
         else if (m_moveDirction.y < 0)
@@ -92,11 +104,16 @@ public class playerMove : MonoBehaviour
         }
 
         if(sphereRB.position.y > 1){        //add gravity so player falls off ramps better
-            sphereRB.AddForce(Physics.gravity * 200);
+            sphereRB.AddForce(Physics.gravity * 0.5f);
+            //forwardMove = forwardMove + (forwardMove/2);
             //Physics.gravity
         }
+        if(sphereRB.position.y <= 1 ){
+            forwardMove = maxSpeed;
+        }
 
-        transform.position = sphereRB.transform.position; //move to the shpere rb
+
+        //transform.position = sphereRB.transform.position; //move to the shpere rb
 
     }
 
