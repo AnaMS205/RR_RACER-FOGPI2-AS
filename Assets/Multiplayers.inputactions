@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "Multiplayers",
     "maps": [
         {
@@ -27,6 +28,15 @@
                     "name": "RightBash",
                     "type": "Button",
                     "id": "b6874f4b-d571-4f30-81d8-e6b1545bc762",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "07be869e-0e9d-4187-af74-e1932c577a85",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -229,6 +239,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightBash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22f0526b-67c1-4e28-9662-8849275ada12",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e261af5-9761-40b7-a230-06be33a2e77b",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

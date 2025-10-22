@@ -17,6 +17,7 @@ public class TrackManager : MonoBehaviour
     void Start()
     {
         SpawnPlayers();
+        SpawnPlayers();
     }
 
     // Update is called once per frame

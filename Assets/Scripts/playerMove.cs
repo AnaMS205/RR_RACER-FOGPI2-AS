@@ -63,6 +63,15 @@ public class playerMove : MonoBehaviour
         Movement();
         transform.position = sphereRB.transform.position; //move to the shpere rb
         
+        if(sphereRB.position.y > 1){        //add gravity so player falls off ramps better
+            sphereRB.AddForce(Physics.gravity * 10f);
+            forwardMove = forwardMove + 1;
+            //Physics.gravity
+        }
+        if(sphereRB.position.y <= 1 ){
+            sphereRB.AddForce(Physics.gravity * 1f);
+            forwardMove = maxSpeed;
+        }
     }
 
     private void FixedUpdate()
@@ -102,16 +111,6 @@ public class playerMove : MonoBehaviour
             
             sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
         }
-
-        if(sphereRB.position.y > 1){        //add gravity so player falls off ramps better
-            sphereRB.AddForce(Physics.gravity * 0.5f);
-            //forwardMove = forwardMove + (forwardMove/2);
-            //Physics.gravity
-        }
-        if(sphereRB.position.y <= 1 ){
-            forwardMove = maxSpeed;
-        }
-
 
         //transform.position = sphereRB.transform.position; //move to the shpere rb
 

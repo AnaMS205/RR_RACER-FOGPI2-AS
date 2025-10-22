@@ -13,6 +13,7 @@ public class CountdownTimer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //GetComponent<PlayerInput>().DeactivateInput();
         currentTime = countDuration;
         isCounting = true;
         UpdateCountdown();
@@ -38,6 +39,7 @@ public class CountdownTimer : MonoBehaviour
         countdownText.text = seconds.ToString();
 
         if(currentTime <= 0){
+            //GetComponent<PlayerInput>().ActivateInput();
             countdownText.text = "GO!";
         }
         if(currentTime <= -3){

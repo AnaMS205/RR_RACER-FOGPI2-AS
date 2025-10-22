@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         if(pauseInput.IsPressed()){
             Debug.Log("paused");
             ShowPauseScreen();
+            Time.timeScale = 0f;
         }
         
     }

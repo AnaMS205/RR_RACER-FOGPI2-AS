@@ -4073,7 +4073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0424d9e79731f64c87b184aa5b82b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 778828725}
+  players: {fileID: 833184580134169236, guid: b5f6cf2901b3238418e7f3a179b0205d, type: 3}
   spawnPoint: {fileID: 630776750}
 --- !u!1 &1778886954
 GameObject:
@@ -4978,6 +4978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 833184580134169236, guid: b5f6cf2901b3238418e7f3a179b0205d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5611537751836616698, guid: b5f6cf2901b3238418e7f3a179b0205d, type: 3}
       propertyPath: speedCurve.m_Curve.Array.size
       value: 2
@@ -5000,7 +5004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5837582696248171901, guid: b5f6cf2901b3238418e7f3a179b0205d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 5837582696248171901, guid: b5f6cf2901b3238418e7f3a179b0205d, type: 3}
       propertyPath: m_LocalPosition.y
