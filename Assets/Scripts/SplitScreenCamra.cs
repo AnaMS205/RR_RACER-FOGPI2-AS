@@ -10,9 +10,9 @@ public class SplitScreenCamra : MonoBehaviour
     int index;
     int totalPlayers;
 
-    // private void Awake(){
-    //     PlayerInputManager.instance.onPlayerJoined += HandlePlayerJoined;
-    // }
+    private void Awake(){
+        PlayerInputManager.instance.onPlayerJoined += HandlePlayerJoined;
+    }
 
     private void HandlePlayerJoined(PlayerInput obj){
         totalPlayers = PlayerInput.all.Count;
@@ -24,7 +24,7 @@ public class SplitScreenCamra : MonoBehaviour
             cam.rect = new Rect(0,0,1,1);   //full screen for one player
         }else if(totalPlayers == 2){
             cam.rect = new Rect(index == 0? 0 :0.5f,0,0.5f, 1);  //split screen for two players
-        }else if(totalPlayers == 3){    //com for 3 or 4 players
+        }else if(totalPlayers == 3){    //cominsate for 3 or 4 players    compenstate? compensate? compenset?
             cam.rect = new Rect(index == 0 ? 0 : (index == 1 ? 0.5f : 0), index < 2? 0.5f :0, index < 2? 0.5f :1, 0.5f );
         }else{
             cam.rect = new Rect((index %2) * 0.5f, (index<2) ? 0.5f : 0f,0.5f,0.5f ); 

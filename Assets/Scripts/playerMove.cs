@@ -4,12 +4,11 @@ using UnityEngine.InputSystem;
 //public Animation graph;
 public class playerMove : MonoBehaviour
 {
-
-    //[SerializeFeild]
-
     public Rigidbody sphereRB;
 
-    public float forwardMove = 8f, reverseMove = 4f, turnStr = 180f, maxSpeed;
+    [SerializeField] public float forwardMove = 11f;
+
+    public float reverseMove = 4f, turnStr = 180f;
     // Start is called once before the first execution oated 
 
     private float speedInput, turnInput;
@@ -20,58 +19,35 @@ public class playerMove : MonoBehaviour
     private InputAction m_left;
     private InputAction rightBash;
 
-
-    private Vector3 m_moveDirction; 
-
-    //public GameObject startPos;
+    private Vector2 m_moveDirction; 
 
     public AnimationCurve speedCurve;
 
-    void Awake(){
-        // leftBash = movementing.FindAction("LeftBash");
-        // rightBash = movementing.FindAction("RightBash");
-    }
+    //      Bool to control when player can input
+    public bool canReceiveInput = true;
 
 
     void Start()
     {
         //sphereRB.transform.position = startPos.transform.position;
-        GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f),Random.Range(0f, 1f));
+        //GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f),Random.Range(0f, 1f));
 
         sphereRB.transform.parent = null;
-        maxSpeed = forwardMove; //set as a baseline so forward move can be reset
-
-        
     }
 
     public void OnMove(InputValue input){
-        m_moveDirction = input.Get<Vector2>();
+        
         //m_left = Input.("LeftBash");
+        m_moveDirction = input.Get<Vector2>();
 
     }
 
     // Update is called once per frame
     void Update()
-    {
-        // Vector3 move = new Vector3(0, 0, m_moveDirction.y);
-        // transform.Translate(move* forwardMove * forwardMove * Time.deltaTime);
-        // transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, m_moveDirction.x * turnStr * Time.deltaTime, 0f));
-        // //transform.Translate(move* forwardMove * Time.deltaTime, Space.World);
-        // //sphereRB.AddForce(transform.forward * move.x* forwardMove * Time.deltaTime);
-        
-        
+    {  
         Movement();
         transform.position = sphereRB.transform.position; //move to the shpere rb
         
-        if(sphereRB.position.y > 1){        //add gravity so player falls off ramps better
-            sphereRB.AddForce(Physics.gravity * 10f);
-            forwardMove = forwardMove + 1;
-            //Physics.gravity
-        }
-        if(sphereRB.position.y <= 1 ){
-            sphereRB.AddForce(Physics.gravity * 1f);
-            forwardMove = maxSpeed;
-        }
     }
 
     private void FixedUpdate()
@@ -83,76 +59,47 @@ public class playerMove : MonoBehaviour
         }
 
     }
+
+    public void EnableInput(){
+        canReceiveInput = true;
+    }
+    public void DisableInput(){
+        canReceiveInput = false;
+    }
     
     void Movement(){
-        speedInput = 0f;
-        //forward movement
-        if (m_moveDirction.y > 0)       //input.getAxis vertical
-        {
-            speedInput = m_moveDirction.y * forwardMove * 1000 ;    //ask eric how to myltiply by the speed curve
-        }
-        //reverse movement
-        else if (m_moveDirction.y < 0)
-        {
-            speedInput = m_moveDirction.y * reverseMove * 1000;
-        }
+        if (canReceiveInput == true){
+            speedInput = 0f;
+            //forward movement
+            if (m_moveDirction.y > 0)       //input.getAxis vertical
+            {
+                speedInput = m_moveDirction.y * forwardMove * 1000 ;    //ask eric how to myltiply by the speed curve
+            }
+            //reverse movement
+            else if (m_moveDirction.y < 0)
+            {
+                speedInput = m_moveDirction.y * reverseMove * 1000;
+            }
 
-        turnInput = m_moveDirction.x;   //turning
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
+            turnInput = m_moveDirction.x;   //turning
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
 
-        if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
+            if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
             //Debug.Log("Pressed left-click.");
 
-            sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
-        }
+                sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
+            }
             
-        if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
+            if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
             //Debug.Log("Pressed right-click.");
             
-            sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
-        }
+                sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
+            }
 
-        //transform.position = sphereRB.transform.position; //move to the shpere rb
+            //transform.position = sphereRB.transform.position; //move to the shpere rb
+        }
 
     }
 
-
-
-    // void Movement(){
-    //     speedInput = 0f;
-    //     if (Input.GetAxis("Vertical") > 0)
-    //     {
-    //         speedInput = Input.GetAxis("Vertical") * forwardMove * 1000;
-    //     }
-    //     else if (Input.GetAxis("Vertical") < 0)
-    //     {
-    //         speedInput = Input.GetAxis("Vertical") * reverseMove * 1000;
-    //     }
-
-    //     turnInput = Input.GetAxis("Horizontal");
-    //     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
-
-    //     //transform.position = sphereRB.transform.position; //move to the shpere rb
-
-    //     if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
-    //         //Debug.Log("Pressed left-click.");
-
-    //         sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
-    //     }
-            
-    //     if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
-    //         //Debug.Log("Pressed right-click.");
-            
-    //         sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
-    //     }
-
-    //     if(sphereRB.position.y > 1){        //add gravity so player falls off ramps better
-    //         sphereRB.AddForce(Physics.gravity * 200);
-    //         //Physics.gravity
-    //     }
-
-    //     transform.position = sphereRB.transform.position; //move to the shpere rb
-
-    // }
 
 }

@@ -10,10 +10,21 @@ public class CountdownTimer : MonoBehaviour
     float currentTime;
     bool isCounting = false;
 
+    //public playerMove playerMovement;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //GetComponent<PlayerInput>().DeactivateInput();
+        // currentTime = countDuration;
+        // isCounting = true;
+        // UpdateCountdown();
+        //playerMovement.DisableInput();
+
+        StartCountDown();
+    }
+
+    public void StartCountDown(){
         currentTime = countDuration;
         isCounting = true;
         UpdateCountdown();
@@ -28,6 +39,7 @@ public class CountdownTimer : MonoBehaviour
             if(currentTime <=-3){
                 //currentTime = 0;
                 isCounting = false;
+                //playerMovement.EnableInput();
             }
             UpdateCountdown();
         }

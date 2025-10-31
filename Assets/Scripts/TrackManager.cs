@@ -8,7 +8,7 @@ public class TrackManager : MonoBehaviour
     //start test track timer
     //go to win podium
 
-    public GameObject players;
+    public GameObject player;
     public Transform spawnPoint;
 
     //public GameObject spawnBarriers;
@@ -16,25 +16,25 @@ public class TrackManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnPlayers();
-        SpawnPlayers();
+        if(MainMenu.playerNum <= 1)
+            SpawnPlayers();
+
+        if(MainMenu.playerNum >=2)
+            SpawnPlayers();
+            SpawnPlayers();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("escape")){
+            Application.Quit();
+        }
         
     }
 
-    void SpawnPlayers(){
-        Instantiate(players, spawnPoint.position, spawnPoint.rotation);
+    void SpawnPlayers(){    //spwan one player
+        Instantiate(player, spawnPoint.position, spawnPoint.rotation);
     }
 
-    // void MoveSpawnBarriers(){
-    //     //spawnBarriers.Vector3.position = transfrom.position(spawnBarriers.x, -5, spawnBarriers.z);
-    // }
-
-    void StartCountDown(){
-
-    }
 }

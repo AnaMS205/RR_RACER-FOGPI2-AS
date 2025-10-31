@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using TMPro;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,15 +13,19 @@ public class MainMenu : MonoBehaviour
     public string multiPScene;  //multiplayer scene
     public string controlScene; //control menu
 
+    public GameObject multipMenu;
+
     public GameObject singleBut;
     public GameObject multiBut;
     public GameObject menuBut;
+    public GameObject TutBut;
     public GameObject backBut;
 
-    int playerNum;
+    public static int playerNum = 0;
 
     public void Start(){
         ShowButtons();
+        multipMenu.SetActive(false);
         //menuText = gameObject.GetComponent<TMP_Text>();
 
         menuText.text = "beautiful menu";
@@ -29,6 +35,11 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void TutorialTrack(){
+        playerNum = 1;
+        //load tutorial track
+    }
+
     public void SingleStart(){
         playerNum = 1;
         SceneManager.LoadScene(singlePScene);
@@ -36,14 +47,30 @@ public class MainMenu : MonoBehaviour
     }
 
     public void MultiStart(){       //load buttons to select numer of players (2-4);
-        //SceneManager.LoadScene(multiPScene);
-        playerNum = 2;
-        playerSelect.text = "Im working on it";
-        menuText.text = " ";
-        HideButtons();
-        //ShowOther();
-        backBut.SetActive(true);
 
+        // multipMenu.SetActive(true);
+        // HideButtons();
+        // backBut.SetActive(true);
+
+        TwoPlayer();
+
+    }
+
+    ///////////// Multiplayer select buttons
+    public void TwoPlayer(){
+        playerNum = 2;
+
+        SceneManager.LoadScene(multiPScene);
+    }
+    public void ThreePlayer(){
+        playerNum = 3;
+
+        SceneManager.LoadScene(multiPScene);
+    }
+    public void FourPlayer(){
+        playerNum = 4;
+
+        SceneManager.LoadScene(multiPScene);
     }
 
     public void LoadMenu(){
@@ -70,23 +97,16 @@ public class MainMenu : MonoBehaviour
         singleBut.SetActive(false);
         multiBut.SetActive(false);
         menuBut.SetActive(false);
+        TutBut.SetActive(false);
     }
 
-    // void HideOther(){
-    //     twoP.SetActive(false);
-    //     threeP.SetActive(false);
-    //     fourP.SetActive(false);
-    // }
 
     void ShowButtons(){
         singleBut.SetActive(true);
         multiBut.SetActive(true);
         menuBut.SetActive(true);
+        TutBut.SetActive(true);
     }
 
-    // void ShowOther(){
-    //     twoP.SetActive(true);
-    //     threeP.SetActive(true);
-    //     fourP.SetActive(true);
-    // }
+
 }

@@ -11,7 +11,7 @@ public class OffRoadTerrain : MonoBehaviour
     void OnTriggerEnter(Collider other){
         //Debug.Log("Get back on the road!");
         if(other.gameObject.CompareTag("Player"))
-            Debug.Log("Get back on the road!");
+            //Debug.Log("Get back on the road!");
             player.forwardMove *= slowdown;
             player.reverseMove *= slowdown;
             player.turnStr *= slowdown;
