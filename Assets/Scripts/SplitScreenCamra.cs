@@ -11,7 +11,7 @@ public class SplitScreenCamra : MonoBehaviour
     int totalPlayers;
 
     private void Awake(){
-        PlayerInputManager.instance.onPlayerJoined += HandlePlayerJoined;
+        //PlayerInputManager.instance.onPlayerJoined += HandlePlayerJoined;
     }
 
     private void HandlePlayerJoined(PlayerInput obj){
