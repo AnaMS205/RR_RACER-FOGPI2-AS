@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.InputSystem;
 //public Animation graph;
 public class playerMove : MonoBehaviour
 {
     public Rigidbody sphereRB;
 
-    [SerializeField] public float forwardMove = 11f;
+    //[SerializeField] public float forwardMove = 11f;
 
-    public float reverseMove = 4f, turnStr = 180f;
+    public float reverseMove = 4f, turnStr = 180f, forwardMove = 1f, maxSpeed =2;
     // Start is called once before the first execution oated 
 
     private float speedInput, turnInput;
@@ -21,7 +22,7 @@ public class playerMove : MonoBehaviour
 
     private Vector2 m_moveDirction; 
 
-    public AnimationCurve speedCurve;
+    //public AnimationCurve speedCurve;
 
     //      Bool to control when player can input
     public bool canReceiveInput = true;
@@ -47,6 +48,10 @@ public class playerMove : MonoBehaviour
     {  
         Movement();
         transform.position = sphereRB.transform.position; //move to the shpere rb
+
+        if(sphereRB.transform.position.y > 2){
+            sphereRB.AddForce(Physics.gravity * 100);
+        }
         
     }
 
@@ -73,12 +78,12 @@ public class playerMove : MonoBehaviour
             //forward movement
             if (m_moveDirction.y > 0)       //input.getAxis vertical
             {
-                speedInput = m_moveDirction.y * forwardMove * 1000 ;    //ask eric how to myltiply by the speed curve
+                speedInput = m_moveDirction.y * forwardMove * 10000;    //ask eric how to myltiply by the speed curve
             }
             //reverse movement
             else if (m_moveDirction.y < 0)
             {
-                speedInput = m_moveDirction.y * reverseMove * 1000;
+                speedInput = m_moveDirction.y * reverseMove * 10000;
             }
 
             turnInput = m_moveDirction.x;   //turning
@@ -95,6 +100,13 @@ public class playerMove : MonoBehaviour
             
                 sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
             }
+
+            float v = sphereRB.linearVelocity.magnitude;
+            v = Mathf.Clamp(v, 0, maxSpeed);
+            //sphereRB.linearVelocity = sphereRB.linearVelocity * v;
+
+            //rb.linearvelocity magnitues =mathF.clamp(v,min,max)
+            //rb.linearvelcoty.normilize * v
 
             //transform.position = sphereRB.transform.position; //move to the shpere rb
         }

@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     private TMP_Text timerText;
     public float time;
-    private bool running = false;
+    public bool running = false;
     //public int sec;
     //float recordTime;
 

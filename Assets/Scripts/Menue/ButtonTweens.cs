@@ -12,7 +12,7 @@ public class ButtonTweens : MonoBehaviour
         SlidInButtons();
     }
 
-    void SlidInButtons(){
+    void SlidInButtons(){   //cool thing to let the button slide in all coo and stuff
         for(int i=0; i<buttons.Length; i++){
             RectTransform btn = buttons[i];
             Vector2 targetPos = btn.anchoredPosition;
