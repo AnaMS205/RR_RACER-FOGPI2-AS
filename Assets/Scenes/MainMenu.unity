@@ -1747,9 +1747,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuText: {fileID: 349843998}
   playerSelect: {fileID: 35969843}
-  singlePScene: SampleScene
+  singlePScene: Track1
   multiPScene: SampleScene
   controlScene: SampleScene
+  tutorialTrack: TutorialTrack
   multipMenu: {fileID: 372646728}
   singleBut: {fileID: 1058156167}
   multiBut: {fileID: 1839419699}

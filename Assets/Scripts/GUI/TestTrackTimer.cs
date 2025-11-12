@@ -6,6 +6,9 @@ public class TestTrackTimer : MonoBehaviour
     public TestTrackLapTimes lapTime;
     public Timer timer;
     public CheckPoint checkPoint;
+
+    public WinScreen winScreen;
+
     private int laps = 0;
 
  
@@ -13,7 +16,7 @@ public class TestTrackTimer : MonoBehaviour
     //checkPoint.check = false;
 
     void Start(){
-  
+        laps = 0;
     }
 
     void OnTriggerEnter(Collider other){
@@ -47,6 +50,8 @@ public class TestTrackTimer : MonoBehaviour
             checkPoint.SetFalse();
             timer.StopTime();
             laps = 0;
+
+            winScreen.ShowWinScreen();
         }
             
     }

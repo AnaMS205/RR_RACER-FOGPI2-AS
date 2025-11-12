@@ -9,7 +9,7 @@ public class playerMove : MonoBehaviour
 
     //[SerializeField] public float forwardMove = 11f;
 
-    public float reverseMove = 4f, turnStr = 180f, forwardMove = 1f, maxSpeed =2;
+    public float reverseMove = 4f, turnStr = 170f, forwardMove = 1.1f, maxSpeed =3;
     // Start is called once before the first execution oated 
 
     private float speedInput, turnInput;
@@ -49,8 +49,8 @@ public class playerMove : MonoBehaviour
         Movement();
         transform.position = sphereRB.transform.position; //move to the shpere rb
 
-        if(sphereRB.transform.position.y > 2){
-            sphereRB.AddForce(Physics.gravity * 100);
+        if(transform.position.y > 2){
+            sphereRB.AddForce(Physics.gravity * 230);
         }
         
     }
@@ -78,7 +78,7 @@ public class playerMove : MonoBehaviour
             //forward movement
             if (m_moveDirction.y > 0)       //input.getAxis vertical
             {
-                speedInput = m_moveDirction.y * forwardMove * 10000;    //ask eric how to myltiply by the speed curve
+                speedInput = m_moveDirction.y * forwardMove * 10000;  
             }
             //reverse movement
             else if (m_moveDirction.y < 0)
@@ -100,15 +100,6 @@ public class playerMove : MonoBehaviour
             
                 sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
             }
-
-            float v = sphereRB.linearVelocity.magnitude;
-            v = Mathf.Clamp(v, 0, maxSpeed);
-            //sphereRB.linearVelocity = sphereRB.linearVelocity * v;
-
-            //rb.linearvelocity magnitues =mathF.clamp(v,min,max)
-            //rb.linearvelcoty.normilize * v
-
-            //transform.position = sphereRB.transform.position; //move to the shpere rb
         }
 
     }

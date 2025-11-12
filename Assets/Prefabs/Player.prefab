@@ -512,9 +512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRB: {fileID: 8878420736830473643}
-  reverseMove: 0.5
+  reverseMove: 0.3
   turnStr: 170
-  forwardMove: 1.4
+  forwardMove: 1
   maxSpeed: 3
   bashPow: 4
   movementing: {fileID: -944628639613478452, guid: c7855bff5b860b8458da0f4fac8dfba0, type: 3}

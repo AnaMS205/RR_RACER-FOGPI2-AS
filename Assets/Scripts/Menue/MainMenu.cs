@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public string singlePScene; //singleplayer scene
     public string multiPScene;  //multiplayer scene
     public string controlScene; //control menu
+    public string tutorialTrack; //tutorial menu
 
     public GameObject multipMenu;
 
@@ -37,6 +38,7 @@ public class MainMenu : MonoBehaviour
 
     public void TutorialTrack(){
         playerNum = 1;
+        SceneManager.LoadScene(tutorialTrack);
         //load tutorial track
     }
 
