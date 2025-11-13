@@ -156,34 +156,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b39ac153-e570-4eb1-9f5d-0805b84a7022",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftBash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dccd82f2-e407-4577-9f75-ddba1819c908",
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LeftBash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ddf88aeb-68bf-4c45-84dd-3ffea6c0b530",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightBash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -508,17 +486,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4a611723-052d-425a-ac2b-63c46a157603",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard",
-                    "action": "LeftBash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "80eef9e2-3f78-442c-8b38-ac6d1cd7029a",
                     "path": "<Keyboard>/z",
                     "interactions": "",
@@ -541,12 +508,12 @@
                 },
                 {
                     "name": "",
-                    "id": "e6d9c889-f10e-4e1d-a6a7-1bb6b72a1338",
-                    "path": "<Mouse>/rightButton",
+                    "id": "80552d87-06c3-4143-932d-809b718ee878",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "RightBash",
+                    "action": "LeftBash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -568,6 +535,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "RightBash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e84d220-a509-41c8-a425-3f7a48770f82",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
                     "action": "RightBash",
                     "isComposite": false,
                     "isPartOfComposite": false

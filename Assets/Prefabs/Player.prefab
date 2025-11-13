@@ -512,10 +512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRB: {fileID: 8878420736830473643}
-  reverseMove: 0.3
-  turnStr: 170
-  forwardMove: 1
-  maxSpeed: 3
   bashPow: 4
   movementing: {fileID: -944628639613478452, guid: c7855bff5b860b8458da0f4fac8dfba0, type: 3}
   canReceiveInput: 1
@@ -569,4 +565,4 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: GamePlay
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2197714846214461995}

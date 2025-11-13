@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d82f4f7cd08b5324aa2813f28fce4ea0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialTrack.unity
     guid: 8620e26745b3b1a4cb93aaeb2839fa3f
+  - enabled: 1
+    path: Assets/Scenes/FreeRoam.unity
+    guid: 812aeb823e728e145aec09250988b9c4
+  - enabled: 1
+    path: Assets/Scenes/TrackForMulti.unity
+    guid: ec3cd172930b8914f8aa3330f5592d17
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

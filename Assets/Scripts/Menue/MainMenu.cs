@@ -10,16 +10,18 @@ public class MainMenu : MonoBehaviour
     public TMP_Text playerSelect;
 
     public string singlePScene; //singleplayer scene
-    public string multiPScene;  //multiplayer scene
-    public string controlScene; //control menu
+    public string multiRace;  //multiplayer scene
+    public string multiFreeplay;
     public string tutorialTrack; //tutorial menu
 
+    public GameObject menumenu;
     public GameObject multipMenu;
+    public GameObject howToPlay;
 
-    public GameObject singleBut;
-    public GameObject multiBut;
-    public GameObject menuBut;
-    public GameObject TutBut;
+    // public GameObject singleBut;
+    // public GameObject multiBut;
+    // public GameObject menuBut;
+    // public GameObject TutBut;
     public GameObject backBut;
 
     public static int playerNum = 0;
@@ -27,10 +29,10 @@ public class MainMenu : MonoBehaviour
     public void Start(){
         ShowButtons();
         multipMenu.SetActive(false);
+        howToPlay.SetActive(false);
         //menuText = gameObject.GetComponent<TMP_Text>();
 
-        menuText.text = "beautiful menu";
-        playerSelect.text = " ";
+        //playerSelect.text = " ";
         backBut.SetActive(false);
         //HideOther();
 
@@ -50,35 +52,30 @@ public class MainMenu : MonoBehaviour
 
     public void MultiStart(){       //load buttons to select numer of players (2-4);
 
-        // multipMenu.SetActive(true);
-        // HideButtons();
-        // backBut.SetActive(true);
+        multipMenu.SetActive(true);
+        HideButtons();
+        backBut.SetActive(true);
 
-        TwoPlayer();
+        //TwoPlayer();
 
     }
 
     ///////////// Multiplayer select buttons
-    public void TwoPlayer(){
+    public void MultiTrack(){
         playerNum = 2;
 
-        SceneManager.LoadScene(multiPScene);
+        SceneManager.LoadScene(multiRace);
     }
-    public void ThreePlayer(){
-        playerNum = 3;
+    public void MultiFree(){
+        playerNum = 2;
 
-        SceneManager.LoadScene(multiPScene);
-    }
-    public void FourPlayer(){
-        playerNum = 4;
-
-        SceneManager.LoadScene(multiPScene);
+        SceneManager.LoadScene(multiFreeplay);
     }
 
     public void LoadMenu(){
-        //SceneManager.LoadScene(controlScene);
         HideButtons();
-        menuText.text = "W/A/S/D = To Drive\n Left and Right mouse buttons = Bash Left and Right";
+        howToPlay.SetActive(true);
+
         backBut.SetActive(true);
     }
 
@@ -89,25 +86,26 @@ public class MainMenu : MonoBehaviour
     public void BackButton(){
         ShowButtons();
         //HideOther();
-        menuText.text = "beautiful menu";
-        playerSelect.text = " ";
+        //playerSelect.text = " ";
         backBut.SetActive(false);
+        multipMenu.SetActive(false);
+        howToPlay.SetActive(false);
     }
 
 
     void HideButtons(){
-        singleBut.SetActive(false);
-        multiBut.SetActive(false);
-        menuBut.SetActive(false);
-        TutBut.SetActive(false);
+        menumenu.SetActive(false);
+        // multiBut.SetActive(false);
+        // menuBut.SetActive(false);
+        // TutBut.SetActive(false);
     }
 
 
     void ShowButtons(){
-        singleBut.SetActive(true);
-        multiBut.SetActive(true);
-        menuBut.SetActive(true);
-        TutBut.SetActive(true);
+        menumenu.SetActive(true);
+        // multiBut.SetActive(true);
+        // menuBut.SetActive(true);
+        // TutBut.SetActive(true);
     }
 
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TrackManager : MonoBehaviour
 {
@@ -11,37 +12,38 @@ public class TrackManager : MonoBehaviour
 
     public GameObject player;
     public Transform spawnPoint;
-    public PauseMenu pauseManu;
-    public CountdownTimer countdownTimer;
+    //public GameObject pauseMenu;
 
-    //public GameObject spawnBarriers;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //pauseManu.SetActive(false);
 
         if(MainMenu.playerNum <= 1)
+            //SpawnPlayers();
+
+        if(MainMenu.playerNum >=2)
+            SpawnPlayers();
             SpawnPlayers();
 
-        // if(MainMenu.playerNum >=2)
-        //     SpawnPlayers();
-        //     SpawnPlayers();
-
-        countdownTimer.StartCountDown();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown("escape")){
-            pauseManu.ShowPauseScreen();
+            //pauseManu.SetActive(true);
             //Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
         
     }
 
-    void SpawnPlayers(){    //spwan one player
+    void SpawnPlayers(){    //spawn one player
         Instantiate(player, spawnPoint.position, spawnPoint.rotation);
+
     }
 
     public void EndGame(){

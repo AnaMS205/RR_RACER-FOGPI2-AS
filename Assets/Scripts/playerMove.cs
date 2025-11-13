@@ -2,14 +2,15 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.InputSystem;
-//public Animation graph;
+
+
 public class playerMove : MonoBehaviour
 {
     public Rigidbody sphereRB;
 
     //[SerializeField] public float forwardMove = 11f;
 
-    public float reverseMove = 4f, turnStr = 170f, forwardMove = 1.1f, maxSpeed =3;
+    public static float reverseMove = 0.5f, turnStr = 170f, forwardMove = 1.1f, maxSpeed =3;
     // Start is called once before the first execution oated 
 
     private float speedInput, turnInput;
@@ -17,8 +18,6 @@ public class playerMove : MonoBehaviour
     public float bashPow = 20f; 
 
     public InputActionAsset movementing;
-    private InputAction m_left;
-    private InputAction rightBash;
 
     private Vector2 m_moveDirction; 
 
@@ -50,7 +49,7 @@ public class playerMove : MonoBehaviour
         transform.position = sphereRB.transform.position; //move to the shpere rb
 
         if(transform.position.y > 2){
-            sphereRB.AddForce(Physics.gravity * 230);
+            sphereRB.AddForce(Physics.gravity * 160);
         }
         
     }
@@ -86,23 +85,25 @@ public class playerMove : MonoBehaviour
                 speedInput = m_moveDirction.y * reverseMove * 10000;
             }
 
+
             turnInput = m_moveDirction.x;   //turning
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
 
-            if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
-            //Debug.Log("Pressed left-click.");
+            // if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
+            // //Debug.Log("Pressed left-click.");
 
-                sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
-            }
+            //     sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
+            // }
             
-            if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
-            //Debug.Log("Pressed right-click.");
+            // if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
+            // //Debug.Log("Pressed right-click.");
             
-                sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
-            }
+            //     sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
+            // }
         }
 
     }
+
 
 
 }

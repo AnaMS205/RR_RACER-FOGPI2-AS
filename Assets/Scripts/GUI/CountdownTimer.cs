@@ -21,7 +21,7 @@ public class CountdownTimer : MonoBehaviour
         // UpdateCountdown();
         //playerMovement.DisableInput();
 
-        //StartCountDown();
+        StartCountDown();
     }
 
     public void StartCountDown(){

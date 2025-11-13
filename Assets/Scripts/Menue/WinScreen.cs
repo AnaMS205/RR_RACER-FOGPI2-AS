@@ -13,6 +13,8 @@ public class WinScreen : MonoBehaviour
     public GameObject winResults;
     public TMP_Text timeResultText;
 
+    public string backToMenu = "MainMenu"; //retunr to the main menu
+
     /// DOTWEEN ///
     public RectTransform textToSlide;
     public float slideDuration = 0.6f;
@@ -57,11 +59,12 @@ public class WinScreen : MonoBehaviour
         //show time results and retunr button
         yield return new WaitForSeconds(0.2f);
         winResults.SetActive(true);
+
     }
 
     public void ReturnButton(){
         //return to the main menu
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(backToMenu);
 
     }
 }

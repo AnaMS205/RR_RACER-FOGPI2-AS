@@ -10,10 +10,6 @@ public class SplitScreenCamra : MonoBehaviour
     int index;
     int totalPlayers;
 
-    private void Awake(){
-        //PlayerInputManager.instance.onPlayerJoined += HandlePlayerJoined;
-    }
-
     private void HandlePlayerJoined(PlayerInput obj){
         totalPlayers = PlayerInput.all.Count;
         SetupCamera();
@@ -34,6 +30,7 @@ public class SplitScreenCamra : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+  
         index = GetComponentInParent<PlayerInput>().playerIndex;
         totalPlayers = PlayerInput.all.Count;
         cam = GetComponent<Camera>();
@@ -45,6 +42,8 @@ public class SplitScreenCamra : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PlayerInputManager.instance != null)
+            PlayerInputManager.instance.onPlayerJoined += HandlePlayerJoined;
         
     }
 }
