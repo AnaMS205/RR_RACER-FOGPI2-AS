@@ -26,6 +26,7 @@ public class playerMove : MonoBehaviour
     //      Bool to control when player can input
     public bool canReceiveInput = true;
 
+    public float slowdown = 0.3f;  //slowdown should be < 1
 
     void Start()
     {
@@ -102,6 +103,14 @@ public class playerMove : MonoBehaviour
             // }
         }
 
+    }
+
+    void OnTriggerEnter(Collider other){
+        if(other.gameObject.CompareTag("OffRoad")){
+            forwardMove *= slowdown;
+            reverseMove *= slowdown;
+            turnStr *= slowdown;
+        }
     }
 
 

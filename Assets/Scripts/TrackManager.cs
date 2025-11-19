@@ -33,11 +33,6 @@ public class TrackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("escape")){
-            //pauseManu.SetActive(true);
-            //Application.Quit();
-            SceneManager.LoadScene("MainMenu");
-        }
         
     }
 
