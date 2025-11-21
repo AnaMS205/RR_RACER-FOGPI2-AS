@@ -26,7 +26,6 @@ public class WinScreen : MonoBehaviour
     void Start()
     {
         winScreen.SetActive(false);
-        winResults.SetActive(false);
         //ShowWinScreen();
     }
 

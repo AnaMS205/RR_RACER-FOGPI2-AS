@@ -2,28 +2,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
-    //public InputActionAsset pauseInput;
 
     public GameObject pauseScreen;
-    // public InputActionAsset inputActions;
 
-    // public InputAction pauseInput;
+    public InputActionAsset inputActions;
+    public InputAction pauseInput;
 
-    // void OnEnable(){
-    //     inputActions.FindActionMap("Gameplay").Enable();
-    // }
-    // void OnDisable(){
-    //     inputActions.FindActionMap("Gameplay").Disable();
-    // }
+    void Awake(){
+        pauseInput = inputActions.FindActionMap("Gameplay").FindAction("Pause");
+        pauseInput.performed += OnPausePerformed;
+    }
 
-    // void Awake(){
-    //     pauseInput = InputSystem.actions.FindAction("Pause");
-    // }
+    void OnEnable(){
+        pauseInput.Enable();
+    }
+    void OnDisable(){
+        //pauseInput.Disable();
+    }
 
-    bool showing;
+    
+
+    public bool showing;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,30 +35,20 @@ public class PauseMenu : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    void OnPausePerformed(InputAction.CallbackContext context){
+        Debug.Log("Paused");
+
+        if (showing)
         {
-            if (showing)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
+            ResumeGame();
+            showing = false;
         }
-        // if(showing == true){
-        //     ShowPauseScreen();
-        //     //Debug.Log("paused");
-        //     Time.timeScale = 0f;
-        // }
-        // if(showing == false){
-        //     Time.timeScale = 1f;
-        //     HidePauseScreen();
-        // }
-        
+        else
+        {
+            PauseGame();
+            showing = true;
+        }
+
     }
 
     public void PauseGame(){
@@ -64,8 +57,8 @@ public class PauseMenu : MonoBehaviour
         showing = true;
     }
     public void ResumeGame(){
-        HidePauseScreen();
         Time.timeScale = 1f;
+        HidePauseScreen();
         showing = false;
     }
 
