@@ -200,8 +200,19 @@
                 },
                 {
                     "name": "",
-                    "id": "80552d87-06c3-4143-932d-809b718ee878",
-                    "path": "<Keyboard>/shift",
+                    "id": "9e84d220-a509-41c8-a425-3f7a48770f82",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "LeftBash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4cdfa7b-cd01-4542-bad7-c759650a41fc",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -233,8 +244,19 @@
                 },
                 {
                     "name": "",
-                    "id": "9e84d220-a509-41c8-a425-3f7a48770f82",
-                    "path": "<Keyboard>/enter",
+                    "id": "80552d87-06c3-4143-932d-809b718ee878",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "RightBash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f050c4c-24bb-497b-9480-81404bb5ea81",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",

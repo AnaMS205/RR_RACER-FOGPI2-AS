@@ -124,3 +124,4 @@ MonoBehaviour:
   lapTime: {fileID: 0}
   timer: {fileID: 0}
   checkPoint: {fileID: 0}
+  winScreen: {fileID: 0}

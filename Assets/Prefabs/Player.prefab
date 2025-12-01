@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7140221452412825760}
   - component: {fileID: 5523812026605058426}
+  - component: {fileID: 1097550456209389424}
   m_Layer: 0
   m_Name: Bike
   m_TagString: Player
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 181220718721216309}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d40402f42d9dfeb4ba644080bda8f6e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df00a17d22db6f941832f0864b5f6035, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,6 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1097550456209389424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556896034274269611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252921579c5ceac47bcd31e768100653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSTR: 90
+  InputAction: {fileID: -944628639613478452, guid: c7855bff5b860b8458da0f4fac8dfba0, type: 3}
 --- !u!1 &5085249909691363856
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +265,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 181220718721216309}
@@ -299,9 +314,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d40402f42d9dfeb4ba644080bda8f6e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df00a17d22db6f941832f0864b5f6035, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.52, y: 3.05}
@@ -471,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181220718721216309}
   - component: {fileID: 5629811663248611155}
+  - component: {fileID: 6740160766095304410}
   - component: {fileID: 2940106194565292330}
   - component: {fileID: 8558416846448306435}
   m_Layer: 0
@@ -512,9 +528,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRB: {fileID: 8878420736830473643}
-  bashPow: 4
+  reverseMove: 0.5
+  turnStr: 170
+  forwardMove: 1.1
+  maxSpeed: 3
   movementing: {fileID: -944628639613478452, guid: c7855bff5b860b8458da0f4fac8dfba0, type: 3}
   canReceiveInput: 1
+  slowdown: 0.3
+--- !u!114 &6740160766095304410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900262900982269488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c3909a0ec4bf64e8f38f34db8fd9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereRB: {fileID: 8878420736830473643}
+  bashPow: 3.5
+  inputActions: {fileID: -944628639613478452, guid: c7855bff5b860b8458da0f4fac8dfba0, type: 3}
+  leftBash:
+    m_Name: Left Bash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 54a69d89-ea6d-4a23-9cc1-be43f3a20006
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rightBash:
+    m_Name: Right Bash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5751844d-9d88-43cb-b3a4-99e8e19c6696
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!65 &2940106194565292330
 BoxCollider:
   m_ObjectHideFlags: 0

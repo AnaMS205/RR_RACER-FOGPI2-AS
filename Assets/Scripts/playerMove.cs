@@ -10,26 +10,30 @@ public class playerMove : MonoBehaviour
 
     //[SerializeField] public float forwardMove = 11f;
 
-    public static float reverseMove = 0.5f, turnStr = 170f, forwardMove = 1.1f, maxSpeed =3;
+    public float reverseMove = 0.5f, turnStr = 170f, forwardMove = 1.1f;
     // Start is called once before the first execution oated 
 
     private float speedInput, turnInput;
-
-    public float bashPow = 20f; 
 
     public InputActionAsset movementing;
 
     private Vector2 m_moveDirction; 
 
-    //public AnimationCurve speedCurve;
 
-    //      Bool to control when player can input
+    //Bool to control when player can input
     public bool canReceiveInput = true;
 
     public float slowdown = 0.3f;  //slowdown should be < 1
 
+    //public GameObject bikeSprite;
+
+    //public ParticleSystem dirt;
+
     void Start()
     {
+        reverseMove = 0.5f;
+        turnStr = 170f;
+        forwardMove = 1.1f;
         //sphereRB.transform.position = startPos.transform.position;
         //GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f),Random.Range(0f, 1f));
 
@@ -89,30 +93,21 @@ public class playerMove : MonoBehaviour
 
             turnInput = m_moveDirction.x;   //turning
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStr * Time.deltaTime, 0f));
-
-            // if (Input.GetMouseButtonDown(0)){     //LEFT CLICK  Input.GetMouseButtonDown(0)
-            // //Debug.Log("Pressed left-click.");
-
-            //     sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
-            // }
             
-            // if (Input.GetMouseButtonDown(1)){    //RIGHT CLICK
-            // //Debug.Log("Pressed right-click.");
-            
-            //     sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
-            // }
+
         }
 
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag("OffRoad")){
+        Debug.Log("Get back on the road!");
+        if(other.gameObject.CompareTag("OffRoad"))
+            Debug.Log("Get back on the road!");
             forwardMove *= slowdown;
             reverseMove *= slowdown;
             turnStr *= slowdown;
-        }
-    }
 
+    }
 
 
 }

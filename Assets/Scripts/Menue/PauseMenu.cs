@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     void OnPausePerformed(InputAction.CallbackContext context){
-        Debug.Log("Paused");
+        //Debug.Log("Paused");
 
         if (showing)
         {

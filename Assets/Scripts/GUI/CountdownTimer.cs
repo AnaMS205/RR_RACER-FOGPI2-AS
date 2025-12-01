@@ -12,6 +12,8 @@ public class CountdownTimer : MonoBehaviour
 
     //public playerMove playerMovement;
 
+    public AudioSource countdownAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +22,7 @@ public class CountdownTimer : MonoBehaviour
         // isCounting = true;
         // UpdateCountdown();
         //playerMovement.DisableInput();
-
+        countdownAudio.Play();
         StartCountDown();
     }
 

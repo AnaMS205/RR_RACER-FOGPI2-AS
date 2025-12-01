@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timerText = gameObject.GetComponent<TMP_Text>();
-        timerText.text ="You should race THREE laps on the testing track"; //keep screen blank
+        timerText.text =" "; //keep screen blank
     }
 
     void Update()

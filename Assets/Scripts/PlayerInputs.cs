@@ -3,35 +3,32 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputs : MonoBehaviour
 {
+    public Rigidbody sphereRB;
+    public float bashPow = 4f; 
 
-    // public InputActionAsset playerInput;
+    public InputActionAsset inputActions;
+    public InputAction leftBash;
+    public InputAction rightBash;
 
-    // // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-        
-    // }
+    void Awake(){
+        leftBash = inputActions.FindActionMap("Gameplay").FindAction("LeftBash");
+        leftBash.performed += ONleftBash;
 
-    // void Awake(){
-    //     playerInput = new InputActionAsset();
-    //     playerInput.LeftBash.performed += ctx => LeftBash();
-    // }
+        rightBash = inputActions.FindActionMap("Gameplay").FindAction("RightBash");
+        rightBash.performed += ONRightBash;
+    }
 
-    // void OnEnable(){
-    //     playerInput.LeftBash.Enable();
-    // }
-    
-    // void OnDisable(){
-    //     playerInput.LeftBash.Disable();
-    // }
+    void OnEnable(){
+        leftBash.Enable();
+        rightBash.Enable();
+    }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
+    void ONleftBash(InputAction.CallbackContext context){
+        sphereRB.AddForce(transform.right * bashPow*1000, ForceMode.Impulse);
+    }
 
-    // void LeftBash(){
-    //     Debug.Log("Working!!");
-    // }
+    void ONRightBash(InputAction.CallbackContext context){
+        sphereRB.AddForce(transform.right * -bashPow*1000, ForceMode.Impulse);
+    }
+
 }

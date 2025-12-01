@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections; //corutine
 
 
 public class MainMenu : MonoBehaviour
@@ -18,10 +19,6 @@ public class MainMenu : MonoBehaviour
     public GameObject multipMenu;
     public GameObject howToPlay;
 
-    // public GameObject singleBut;
-    // public GameObject multiBut;
-    // public GameObject menuBut;
-    // public GameObject TutBut;
     public GameObject backBut;
 
     public static int playerNum = 0;
@@ -38,19 +35,31 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    public void TutorialTrack(){
+    public void TTTrack(){
+        StartCoroutine(TutorialTrack());
+    }
+    IEnumerator TutorialTrack(){
+        yield return new WaitForSeconds(0.6f);
         playerNum = 1;
         SceneManager.LoadScene(tutorialTrack);
         //load tutorial track
     }
 
-    public void SingleStart(){
+    public void SinglePLayerStart(){
+        StartCoroutine(SingleStart());
+    }
+    IEnumerator SingleStart(){
+        yield return new WaitForSeconds(0.6f);
         playerNum = 1;
         SceneManager.LoadScene(singlePScene);
         
     }
 
-    public void MultiStart(){       //load buttons to select numer of players (2-4);
+    public void MultiPLayerMenu(){
+        StartCoroutine(MultiStart());
+    }
+    IEnumerator MultiStart(){       //load buttons to select numer of players (2-4);
+        yield return new WaitForSeconds(0.6f);
 
         multipMenu.SetActive(true);
         HideButtons();
@@ -61,18 +70,30 @@ public class MainMenu : MonoBehaviour
     }
 
     ///////////// Multiplayer select buttons
-    public void MultiTrack(){
+    public void MultiPLayerRace(){
+        StartCoroutine(MultiTrack());
+    }
+    IEnumerator MultiTrack(){
+        yield return new WaitForSeconds(0.6f);
         playerNum = 2;
 
         SceneManager.LoadScene(multiRace);
     }
-    public void MultiFree(){
+    public void MultiPLayerFree(){
+        StartCoroutine(MultiFree());
+    }
+    IEnumerator MultiFree(){
+        yield return new WaitForSeconds(0.6f);
         playerNum = 2;
 
         SceneManager.LoadScene(multiFreeplay);
     }
 
-    public void LoadMenu(){
+    public void SubMenuLoad(){
+        StartCoroutine(LoadMenu());
+    }
+    IEnumerator LoadMenu(){
+        yield return new WaitForSeconds(0.6f);
         HideButtons();
         howToPlay.SetActive(true);
 
@@ -85,8 +106,7 @@ public class MainMenu : MonoBehaviour
 
     public void BackButton(){
         ShowButtons();
-        //HideOther();
-        //playerSelect.text = " ";
+   
         backBut.SetActive(false);
         multipMenu.SetActive(false);
         howToPlay.SetActive(false);
@@ -95,18 +115,10 @@ public class MainMenu : MonoBehaviour
 
     void HideButtons(){
         menumenu.SetActive(false);
-        // multiBut.SetActive(false);
-        // menuBut.SetActive(false);
-        // TutBut.SetActive(false);
     }
-
 
     void ShowButtons(){
         menumenu.SetActive(true);
-        // multiBut.SetActive(true);
-        // menuBut.SetActive(true);
-        // TutBut.SetActive(true);
     }
-
 
 }
